@@ -19,12 +19,12 @@ code {
   align-items: center;
   background: linear-gradient(90deg, #fff, #fff);
   padding: 10px 20px;
-  border-radius: 0px;
-  margin: 10px;
   max-width: 100%; 
   box-sizing: border-box; 
-  position: relative ;
-  z-index: 5;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.1);
 }
 
 .navbar-logo img {
@@ -71,8 +71,6 @@ code {
   color: black;
 }
 
-
-/* hamburger icon (for mobile) */
 .menu-icon {
   display : none;
   

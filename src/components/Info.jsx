@@ -109,30 +109,12 @@ function Info() {
       <div className = "Start-Tour">
       <StartTour/>
       </div>
-      <div className="two-column-section">
-        <div className="column">
-          <h2>Welcome!</h2>
+        <div className="welcome-text">
+          <h2 className="welcome-header">Welcome!</h2>
           <p>
           'Good day to you' or as we say in Doric: 'Fit Like'. Welcome to the King's Chapel one of the oldest surviving buildings on our Aberdeen Campus founded in 1495 and began construction in 1500. We are happy to have you today and hope that you will enjoy exploring with our app. As you move around the chapel use your phone to look for areas highlighted by unique links to find out more.
           </p>
         </div>
-        <div className="column">
-          
-        </div>
-      </div>  
-       <div className="services-container">
-        {services.map((service, i) => (
-          <div key={i} className="service-item">
-            <img
-              src={service.icon}
-              alt={service.title}
-              className="service-icon"
-            />
-            <h3>{service.title}</h3>
-            <p>{service.content}</p>
-          </div>
-        ))}
-      </div> 
       <Footer /> 
     </div>
   );

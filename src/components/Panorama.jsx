@@ -31,6 +31,26 @@ function Panorama() {
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+
+    //Lock the scroll position
+    const lockScroll = () => window.scrollTo(0, 0);
+    window.addEventListener("scroll", lockScroll);
+
+    // lock touch scrolling
+    document.body.style.overflow = "hidden";
+    document.body.style.position = "fixed";
+    document.body.style.width = "100%";
+
+    return () => {
+      window.removeEventListener("scroll", lockScroll);
+      document.body.style.overflow = "auto";
+      document.body.style.position = "";
+      document.body.style.width = "";
+    };
+  }, []);
+
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         setOrganPopupVisible(false);
@@ -201,26 +221,29 @@ function Panorama() {
 
   const style={
       width: "100%",
-      height: "700px",
+      height: "100vh",
       background: "#000000"
     };
 
   const config = {
       autoLoad: true,
       showControls: false,
+      showFullscreenCtrl: false,
     };
   
 
 return (
   <div>
 
-    <ReactPannellum
-      id="1"
-      sceneId="firstScene"
-      config={config}
-      imageSource="images/AnteChapel.jpg"
-      style={style}
-    />
+    <div className="panorama-shell">
+      <ReactPannellum
+        id="1"
+        sceneId="firstScene"
+        config={config}
+        imageSource="images/AnteChapel.jpg"
+        style={{ width: "100%", height: "100%" }} 
+      />
+    </div>
 
 
     {anteChapelPopupVisible && (
@@ -369,10 +392,10 @@ return (
           <div className="popup-content" ref = {popupRef}>
             <h2>The Chapel Organ</h2>
             <p id="organParagraph">
-              The original organ was built by the Norman Brothers and Beard of Norwich during the 1891- although this may have replaced an earlier organ that was placed along the Western wall. The 1891 organ was short lived as it was not completed until 1928, and by 1952, it was deemed unfit for use and would spend the next fifty years in almost constant need of repairs and revoicing until it was replaced in 2004. The current organ was designed by the French organ builder Bernard Aubertin as a mechanical, three-manual instrument. It only uses electricity for the blowing mechanism and light console. Its tonal design is a medieval Blockwerk made to complement the Chapels acoustics and is similar in sound to what the Founder Elphinstone would have been accustomed to hearing.  
+              The chapel’s original organ (installed in 1891 by Norman Brothers and Beard of Norwich) proved unreliable and, after decades of repairs, was replaced in 2004. Today’s organ—designed by French builder Bernard Aubertin—is a largely mechanical, three-manual instrument voiced in a medieval style to suit the chapel’s acoustics and echo the sound Elphinstone may have known.
             </p>
             <div className="popup-buttons">
-              <Link to="/organImages" className="info-button">Uncover Pictures of the Hidden Organ</Link>
+              <Link to="/organImages" className="info-button">Learn More</Link>
               <button onClick={() => speakText(document.getElementById('organParagraph').textContent)}>Listen To Audio</button>
               <button onClick={stopSpeech}>Stop Audio</button>
               </div>

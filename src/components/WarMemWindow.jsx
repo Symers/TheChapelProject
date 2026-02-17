@@ -26,9 +26,11 @@ In order to accomplish this, Strachan uses a range of symbols: firstly, the four
         <img src="/images/warMemorialImage.jpg" alt="War Memorial Window" width="300" height="400" className="image" />
         </div>
       </div>  
-      <button className="backButton" onClick={() => navigate(-1)}>
-        Back to Tour
-      </button>
+      <div className="backButton-container">
+        <button className="backButton" onClick={() => navigate(-1)}>
+          Back to Tour
+        </button> 
+      </div>
       <Footer />
     </div>
   );

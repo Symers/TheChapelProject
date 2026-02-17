@@ -26,12 +26,14 @@ The angels above are in chorus for this grand occasion. They are grouped into se
         </div>
 
         <div className="column">
-        <img src="/images/deGurbsImage.jpg" alt="War Memorial Window" width="300" height="400" className="image" />
+        <img src="/images/deGurbsImage.jpg" alt="War Memorial Window" width="300" height="400" style={{ position: "relative", top: "25%" }} />
         </div>
       </div>  
-      <button className="backButton" onClick={() => navigate(-1)}>
-        Back to Tour
-      </button>
+      <div className="backButton-container">
+        <button className="backButton" onClick={() => navigate(-1)}>
+          Back to Tour
+        </button> 
+      </div>
       <Footer />
     </div>
   );

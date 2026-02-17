@@ -34,6 +34,26 @@ function Panorama() {
   };
 
   useEffect(() => {
+      window.scrollTo(0, 0);
+  
+      //Lock the scroll position
+      const lockScroll = () => window.scrollTo(0, 0);
+      window.addEventListener("scroll", lockScroll);
+  
+      // lock touch scrolling
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+  
+      return () => {
+        window.removeEventListener("scroll", lockScroll);
+        document.body.style.overflow = "auto";
+        document.body.style.position = "";
+        document.body.style.width = "";
+      };
+    }, []);
+
+  useEffect(() => {
     const handleClickOutside = (event) => {
       if (popupRef.current && !popupRef.current.contains(event.target)) {
         setLargePulpitPopupVisible(false);
@@ -205,7 +225,7 @@ function Panorama() {
         ReactPannellum.addHotSpot(
         {
             pitch: 0,
-            yaw: 0,
+            yaw: 65,
             type: "custom",
             cssClass: "deskHotspot",
             createTooltipFunc: (hotspotDiv) => {
@@ -258,7 +278,7 @@ function Panorama() {
 
         ReactPannellum.addHotSpot(
         {
-            pitch: 35,
+            pitch:5,
             yaw: 90,
             type: "custom",
             cssClass: "exitHotspot",
@@ -285,15 +305,16 @@ function Panorama() {
 
     }, []);
 
-  const style={
-      width: "100%",
-      height: "700px",
-      background: "#000000"
-    };
+  const style = {
+    width: "100%",
+    height: "100dvh",           // or "100vh"
+    background: "#000000"
+  };
 
   const config = {
       autoLoad: true,
       showControls: false,
+      showFullscreenCtrl: false,
     };
   
 
@@ -331,7 +352,7 @@ return (
       {elphinstoneGravePopupVisible && (
         <div className="popup">
             <div className="popup-content" ref = {popupRef}>
-                <h2>Elphinstone's Grave</h2>
+                <h2>Elphinstone's Tomb</h2>
                 <p id = "graveParagraph">After his death, Bishop Elphinstone was buried in King’s College Chapel. What remains today is the original base and cover slab of the tomb chest. It is made of black marble which was brought from Tournai in Belgium. This same marble from Tournai can be seen in adjoining grave markers.  The statue of Bishop Elphinstone and supporting figures were destroyed after the Reformation. A new monument for Elphinstone, created in 1926, can be found on the lawn outside of the Chapel.​</p>
                 <div className="popup-buttons">
                   <button onClick={() => speakText(document.getElementById('graveParagraph').textContent)}>Listen To Audio</button>

@@ -29,6 +29,26 @@ function Panorama() {
     window.speechSynthesis.cancel();
   };
 
+  useEffect(() => {
+      window.scrollTo(0, 0);
+  
+      //Lock the scroll position
+      const lockScroll = () => window.scrollTo(0, 0);
+      window.addEventListener("scroll", lockScroll);
+  
+      // lock touch scrolling
+      document.body.style.overflow = "hidden";
+      document.body.style.position = "fixed";
+      document.body.style.width = "100%";
+  
+      return () => {
+        window.removeEventListener("scroll", lockScroll);
+        document.body.style.overflow = "auto";
+        document.body.style.position = "";
+        document.body.style.width = "";
+      };
+    }, []);
+
     useEffect(() => {
       const handleClickOutside = (event) => {
         if (popupRef.current && !popupRef.current.contains(event.target)) {
@@ -192,15 +212,16 @@ function Panorama() {
 
     }, []);
 
-  const style={
-      width: "100%",
-      height: "700px",
-      background: "#000000"
-    };
+  const style = {
+    width: "100%",
+    height: "100dvh",           // or "100vh"
+    background: "#000000"
+  };
 
   const config = {
       autoLoad: true,
       showControls: false,
+      showFullscreenCtrl: false,
     };
   
 

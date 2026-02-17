@@ -22,13 +22,14 @@ function AnteChapel() {
 
         <div className="column">
           
-          <img src="/images/anteChapelPhoto.jpg" alt="War Memorial Window" width="350" height="200" className="image" />
+          <img src="/images/anteChapelPhoto.jpg" alt="War Memorial Window" width="350" height="200" style={{ position: "relative", top: "25%" }} />
         </div>
       </div>
-
+      <div className="backButton-container">
         <button className="backButton" onClick={() => navigate(-1)}>
           Back to Tour
         </button> 
+      </div>
 
         <Footer />
       

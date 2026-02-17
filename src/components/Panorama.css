@@ -9,13 +9,13 @@
 }
 
 .panorama-page {
-    overflow: hidden; /* Prevent scrolling */
-    position: fixed; /* Fixes it in place */
-    top: 5;
-    left: 0;
-    width: 100%; 
-    height: 100vh; /* 100% of the viewport height */
-    background-color: #FFF;
+  overflow: hidden; 
+  position: fixed;
+  top: 0;         /* fixed */
+  left: 0;
+  width: 100%; 
+  height: 100%; 
+  background-color: #FFF;
 }
 
 /* Panorama Container */
@@ -55,18 +55,22 @@
     color: #000;
     margin-top : 40px;
     margin-bottom: 10px;
+    font-family: "Merriweather", serif;
 }
 
 .popup p {
     font-size: 16px;
     color: #333;
+    text-align: center;                 
+    text-align: center;          
+    font-family: "Georgia", serif;  
 }
 
 /* Popup Buttons Container */
 .popup-buttons {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    gap: 50px;
+    justify-content: center;
 }
 
 /* audio button */
@@ -102,6 +106,7 @@
 
 /* Learn More Button (Grey) */
 .info-button {
+    align-self: center;
     padding: 6px 14px;
     font-size: 14px; /* Match Close button size */
     background-color: #ccc;
@@ -110,6 +115,7 @@
     border-radius: 10px;
     text-decoration: none;
     transition: background-color 0.2s ease;
+    padding : 15px 15px;
 }
 
 .info-button:hover {
@@ -195,9 +201,9 @@
 }
 
 .exitHotspot {
-    width: 60px; 
-    height: 60px;
-    background-image: url("exitLogo.png");
+    width: 70px; 
+    height: 70px;
+    background-image: url("exit-emergency-sign.png");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -312,4 +318,19 @@
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+}
+
+.panorama-shell {
+  height: calc(100vh - 64px);
+  width: 100%;
+  background: #000;
+  position: relative;
+  z-index: 0;             
+}
+
+@media screen and (min-width: 1024px) {
+  /* Desktop styles go here */
+  .popup {
+    width: 50%; /* Custom width for desktop */
+  }
 }

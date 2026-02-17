@@ -23,12 +23,14 @@ Its central theme focuses on the crucifixion of Christ. The cross is flanked by 
         </div>
 
         <div className="column">
-        <img src="/images/harrowerImage.jpg" alt="War Memorial Window" width="300" height="500" className="image" />
+        <img src="/images/harrowerImage.jpg" alt="War Memorial Window" width="300" height="500" style={{ position: "relative", top: "5%" }} />
         </div>
       </div>  
-      <button className="backButton" onClick={() => navigate(-1)}>
-        Back to Tour
-      </button>
+      <div className="backButton-container">
+        <button className="backButton" onClick={() => navigate(-1)}>
+          Back to Tour
+        </button> 
+      </div>
       <Footer />
     </div>
   );

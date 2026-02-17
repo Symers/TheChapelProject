@@ -19,9 +19,11 @@ function RoodScreen() {
         
         </div>
       </div>
-      <button className="backButton" onClick={() => navigate(-1)}>
+      <div className="backButton-container">
+        <button className="backButton" onClick={() => navigate(-1)}>
           Back to Tour
-        </button>
+        </button> 
+      </div>
         <Footer />
     </div>
   );

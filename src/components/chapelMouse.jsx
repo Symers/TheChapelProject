@@ -26,9 +26,11 @@ function ChapelMouse(){
           </p>
         </div>
       </div>  
-      <button className="backButton" onClick={() => navigate(-1)}>
-        Back to Tour
-      </button>
+      <div className="backButton-container">
+        <button className="backButton" onClick={() => navigate(-1)}>
+          Back to Tour
+        </button> 
+      </div>
       <Footer />
     </div>
   );

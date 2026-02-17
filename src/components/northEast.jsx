@@ -22,12 +22,14 @@ It is meant to represent the cycle of life as understood in Christianity: Life, 
         </div>
 
         <div className="column">
-        <img src="/images/northEastImage.jpg" alt="War Memorial Window" width="300" height="400" className="image" />
+        <img src="/images/northEastImage.jpg" alt="War Memorial Window" width="300" height="400" style={{ position: "relative", top: "15%" }} />
         </div>
       </div>  
-      <button className="backButton" onClick={() => navigate(-1)}>
-        Back to Tour
-      </button>
+      <div className="backButton-container">
+        <button className="backButton" onClick={() => navigate(-1)}>
+          Back to Tour
+        </button> 
+      </div>
       <Footer />
     </div>
   );
